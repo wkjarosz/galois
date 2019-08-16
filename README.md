@@ -8,7 +8,7 @@ The library consists primarily of two classes:
 + The Galois `Element` class takes a pointer to a `Field` and enables arithmetic over a Galois field using operator overload.
 
 For example the following code performs simple arithmetic over GF(q = 2^2 = 4):
-```C++
+```cpp
 Galois::Field gf(4);
 std::cout << gf << std::endl;
 
