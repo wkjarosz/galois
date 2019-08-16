@@ -1,11 +1,14 @@
-galois
-==
+# galois
 
 This is C++ library for general Galois fields based on [Art Owen's code in Statlib](http://ftp.uni-bayreuth.de/math/statlib/designs/). This library supports arithmetic over a finite field of any prime power, GF(p^n) where p is a prime and n >= 1, and it does so relatively efficiently by relying on addition and multiplication tables.
+
+## Library organization
 
 The library consists primarily of two classes:
 + The Galois `Field` class precomputes various tables for efficient arithmetic on a Galois field with `q` elements. This is essentially Owen's `GF` C struct converted to a C++ class with a constructor and a few convient member functions.
 + The Galois `Element` class takes a pointer to a `Field` and enables arithmetic over a Galois field using operator overload.
+
+## Example usage
 
 For example the following code performs simple arithmetic over GF(q = 2^2 = 4):
 ```C++
@@ -77,3 +80,10 @@ D = (B - 1) / C = 3
 ```
 
 The `test` subdirectory contains some unit tests, which can also serve as additional usage examples.
+
+## Acknowledgements & links
+This library is adapted directly from [Art Owen's code in Statlib](http://ftp.uni-bayreuth.de/math/statlib/designs/).
+
+Other Galois field libraries served as inspiration, including:
+ * [GaloisCPP](https://github.com/saiedhk/GaloisCPP), by Saied H. Khayat
+ * [liboa](https://github.com/bertcarnell/oa), by Robert Carnell
