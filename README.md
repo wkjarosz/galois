@@ -1,4 +1,4 @@
-# galois
+# galois++
 
 This is C++ library for general Galois fields based on [Art Owen's code in Statlib](http://ftp.uni-bayreuth.de/math/statlib/designs/). This library supports arithmetic over a finite field of any prime power, GF(p^n) where p is a prime and n >= 1, and it does so relatively efficiently by relying on addition and multiplication tables.
 
