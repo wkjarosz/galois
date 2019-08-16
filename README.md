@@ -11,7 +11,7 @@ The library consists primarily of two classes:
 ## Example usage
 
 For example the following code performs simple arithmetic over GF(q = 2^2 = 4):
-```C++
+```cpp
 Galois::Field gf(4);
 std::cout << gf << std::endl;
 
