@@ -41,21 +41,19 @@ namespace Galois
 /*!
    Defines a Galois Field of characteristic \f$p\f$ and dimesion \f$n\f$ (for \f$GF(p^n\f$)).
 
-   It stores the polynomial field itself and various tables for efficient
+   This stores the polynomial field itself and various tables for efficient
    arithmetic operations (addition/negation, multiplication/division, square
-   root) over the field.
+   root) over the field Element%s.
 */
 class Field
 {
 public:
-    /**
-        Construct an empty Galois field.
-     */
+    /// Construct an empty Galois field.
     Field();
 
     /**
         Construct a Galois field with q arguments.
-        \param q the number of arguments
+        \param q    The number of arguments
      */
     Field(int q);
 
@@ -65,12 +63,6 @@ public:
      */
     bool resize(int q);
 
-    /**
-        Outputs information about this Galois Field to the output stream.
-        \param gf Field on the right of << sign
-        \param output an output stream on the left of << sign
-        \returns output stream
-    */
     friend std::ostream& operator<<(std::ostream& output, const Field& gf);
 
     int n;                 ///< Vector Length
@@ -83,5 +75,14 @@ public:
     Array2d<int> times;    ///< product field
     Array2d<int> poly;     ///< polynomial field
 };
+
+
+/**
+    Outputs information about this Galois Field to the output stream.
+    \param gf       Field on the right of << sign
+    \param output   An output stream on the left of << sign
+    \returns        The output stream
+*/
+std::ostream& operator<<(std::ostream& output, const Field& gf);
 
 } // namespace Galois

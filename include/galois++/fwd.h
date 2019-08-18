@@ -10,6 +10,8 @@
 
 /* Forward declarations */
 template <typename T> class Array2d;
+
+/// Galois field arithmetic
 namespace Galois
 {
 class Field;

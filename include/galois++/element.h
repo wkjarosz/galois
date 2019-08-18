@@ -72,20 +72,8 @@ public:
     void makeValid() { m_value = m_value % m_gf->q; }
     ///@}
 
-    /**
-        \brief Compares two GFelements, checks for equality
-      
-        \return true   if equal
-        \return false  if not equal
-     */
+    
     friend bool operator==(const Element& lhs, const Element& rhs);
-
-    /**
-        \brief Compares two GFelements, checks for inequality
-      
-        \return true   if not equal
-        \return false  if equal
-     */
     friend bool operator!=(const Element& lhs, const Element& rhs);
 
     //-----------------------------------------------------------------------
@@ -139,9 +127,9 @@ public:
         ++*this;
         return tmp;
     }
-    /// Adds a Element to a scalar
-    friend Element operator+(int lhs, const Element& rhs);
     ///@}
+
+    friend Element operator+(int lhs, const Element& rhs);
 
     //-----------------------------------------------------------------------
     ///@{ \name Subtraction
@@ -197,9 +185,9 @@ public:
         --*this;
         return tmp;
     }
-    /// Subtracts a Element from a scalar
-    friend Element operator-(int lhs, const Element& rhs);
     ///@}
+    
+    friend Element operator-(int lhs, const Element& rhs);
 
     //-----------------------------------------------------------------------
     ///@{ \name Multiplication
@@ -235,9 +223,9 @@ public:
     Element operator*(int rhs) const { return (*this) * Element(m_gf, rhs); }
     /// Multiplication-assignment operator with a scalar.
     const Element& operator*=(int rhs) { return (*this) *= Element(m_gf, rhs); }
-    /// Left-multiplies a Element by a scalar
-    friend Element operator*(int lhs, const Element& rhs);
     ///@}
+    
+    friend Element operator*(int lhs, const Element& rhs);
 
     //-----------------------------------------------------------------------
     ///@{ \name Division
@@ -278,9 +266,9 @@ public:
     Element operator/(int rhs) const { return (*this) / Element(m_gf, rhs); }
     /// Division-assignment operator with a scalar
     const Element& operator/=(int rhs) { return (*this) /= Element(m_gf, rhs); }
-    /// Left-divides a Element by a scalar
-    friend Element operator/(int lhs, const Element& rhs);
     ///@}
+    
+    friend Element operator/(int lhs, const Element& rhs);
 
 
     //-----------------------------------------------------------------------
@@ -313,9 +301,9 @@ public:
     Element operator%(int rhs) const { return (*this) % Element(m_gf, rhs); }
     /// Mod-assignment operator with a scalar
     const Element& operator%=(int rhs) { return (*this) %= Element(m_gf, rhs); }
-    /// Left-mods a Element by a scalar
-    friend Element operator%(int lhs, const Element& rhs);
     ///@}
+
+    friend Element operator%(int lhs, const Element& rhs);
 
 
     /// Returns the element y in the Galois Field such that y*y = x.
@@ -347,7 +335,6 @@ public:
 #endif
     }
 
-    /// Outputs a Element to the standard output
     friend std::ostream& operator<<(std::ostream& output, const Element& rhs);
 
 private:
@@ -360,41 +347,49 @@ private:
     int m_value;       ///< Stored value
 };
 
+/// Checkes two GFelements for equality
 inline bool operator==(const Element& lhs, const Element& rhs)
 {
     return lhs.m_gf->q == rhs.m_gf->q && lhs.m_value == rhs.m_value;
 }
 
+/// Checkes two GFelements for inequality
 inline bool operator!=(const Element& lhs, const Element& rhs)
 {
     return !(lhs == rhs);
 }
 
+/// Adds a Element to a scalar
 inline Element operator+(int lhs, const Element& rhs)
 {
     return Element(rhs.m_gf, lhs) + rhs;
 }
 
+/// Subtracts a Element from a scalar
 inline Element operator-(int lhs, const Element& rhs)
 {
     return Element(rhs.m_gf, lhs) - rhs;
 }
 
+/// Left-multiplies a Element by a scalar
 inline Element operator*(int lhs, const Element& rhs)
 {
     return Element(rhs.m_gf, lhs) * rhs;
 }
 
+/// Left-divides a Element by a scalar
 inline Element operator/(int lhs, const Element& rhs)
 {
     return Element(rhs.m_gf, lhs) / rhs;
 }
 
+/// Left-mods a Element by a scalar
 inline Element operator%(int lhs, const Element& rhs)
 {
     return Element(rhs.m_gf, lhs) % rhs;
 }
 
+/// Outputs a Element to the standard output
 inline std::ostream& operator<<(std::ostream& output, const Element& rhs)
 {
     output << rhs.m_value;
