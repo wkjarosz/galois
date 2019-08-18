@@ -1,5 +1,5 @@
 /**
-   \file gfield.cpp
+   \file field.cpp
    \author Wojciech Jarosz
    \copyright Copyright (c) 2019, Wojciech Jarosz
   
@@ -50,7 +50,7 @@ namespace
 /**
    pow() with integer arguments and value
 
-   \return      <code>a</code> raised to the <code>b</code>th power
+   \return      \c a raised to the \c b th power
  */
 int ipow(int a, int b)
 {
@@ -105,7 +105,7 @@ void polySum(int p, int n, const int* p1, const int* p2, vector<int>& sum)
 }
 
 /**
-   Convert polynomial to integer in <code>0..q-1</code>
+   Convert polynomial to integer in $0..q-1$
   
    \param p     polynomial multiplier
    \param n     the length of poly

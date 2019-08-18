@@ -1,5 +1,5 @@
 /**
-   \file gfield.h
+   \file field.h
    \author Wojciech Jarosz
    \copyright Copyright (c) 2019, Wojciech Jarosz
   
@@ -38,6 +38,13 @@
 namespace Galois
 {
 
+/*!
+   Defines a Galois Field of characteristic \f$p\f$ and dimesion \f$n\f$ (for \f$GF(p^n\f$)).
+
+   It stores the polynomial field itself and various tables for efficient
+   arithmetic operations (addition/negation, multiplication/division, square
+   root) over the field.
+*/
 class Field
 {
 public:

@@ -51,7 +51,7 @@ unsigned nthPrime(int n);
 
 
 /**
-   Returns the smallest prime greater than or equal to <code>n</code>.
+   Returns the smallest prime greater than or equal to \c n.
    
    \param n     The number to be bounded.
    \return      The smallest prime number that is greater than or equal to n.
@@ -72,24 +72,24 @@ unsigned primeGE(int n);
                 Returns NUM_PRIME_POWERS, the index of the largest prime
                 available, when n = -1. Returns 1 when n = 0.
  */
-unsigned nthPrimePower(int);
+unsigned nthPrimePower(int n);
 
 
 /**
-   Returns the smallest prime power greater than or equal to n.
+   Returns the smallest prime power greater than or equal to \c n.
    
    \param n     The number to be bounded.
    \return      The smallest prime power that is greater than or equal to n.
                 If n is larger than the largest stored prime power (23099),
                 then 0 is returned.
  */
-unsigned primePowerGE(int);
+unsigned primePowerGE(int n);
 
 /**
    Returns true for prime argument
 
-   \param n     number to test
-   \return      true if <code>p</code> is prime
+   \param p     number to test
+   \return      true if \c p is prime
  */
 bool isPrime(unsigned int p);
 

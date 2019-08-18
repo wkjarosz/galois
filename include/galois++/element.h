@@ -190,7 +190,7 @@ public:
 #endif
         return *this;
     }
-    // Postfix decrement operator.
+    //! Postfix decrement operator.
     Element operator--(int)
     {
         Element tmp = *this;

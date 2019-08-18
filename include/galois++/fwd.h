@@ -9,7 +9,7 @@
 #pragma once
 
 /* Forward declarations */
-template <typename T> class array2d;
+template <typename T> class Array2d;
 namespace Galois
 {
 class Field;

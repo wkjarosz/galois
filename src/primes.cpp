@@ -1,5 +1,5 @@
 /**
-    \file gfield.h
+    \file primes.h
     \author Wojciech Jarosz
     \copyright Copyright (c) 2019, Wojciech Jarosz
     
