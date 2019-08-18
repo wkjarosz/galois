@@ -94,7 +94,7 @@ unsigned primePowerGE(int n);
 bool isPrime(unsigned int p);
 
 /**
-   Find q=p^n if q is a prime power with n>0
+   Find \f$ q=p^n \f$ if \f$ q \f$ is a prime power with \f$ n>0 \f$
 
    \param q     integer that is a prime power
    \param p     the prime base

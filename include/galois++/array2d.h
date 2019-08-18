@@ -13,32 +13,32 @@ class Array2d
 {
 public:
     //@{ \name Constructors and destructors
-    Array2d();                     // empty array, 0 by 0 elements
-    Array2d(int sizeX, int sizeY); // sizeX by sizeY elements
+    Array2d();                     ///< empty array, 0 by 0 elements
+    Array2d(int sizeX, int sizeY); ///< sizeX by sizeY elements
     Array2d(const Array2d &);
     Array2d & operator=(const Array2d &);
     ~Array2d();
     //@}
 
     //@{ \name Element access
-    T &         at(int x, int y);
-    const T &   at(int x, int y) const;
-    T &         operator()(int x, int y);
-    const T &   operator()(int x, int y) const;
-    T &         at(int i);
-    const T &   at(int i) const;
-    T &         operator()(int i);
-    const T &   operator()(int i) const;
-    const T *   row(int y) const;
+    T &         at(int x, int y);               ///< bounds-checked 2d access
+    const T &   at(int x, int y) const;         ///< bounds-checked 2d access
+    T &         operator()(int x, int y);       ///< unchecked 2d access
+    const T &   operator()(int x, int y) const; ///< unchecked 2d access
+    T &         at(int i);                      ///< bounds-checked linear access
+    const T &   at(int i) const;                ///< bounds-checked linear access
+    T &         operator()(int i);              ///< unchecked linear access
+    const T &   operator()(int i) const;        ///< unchecked linear access
+    const T *   row(int y) const;               ///< pointer to `y`-th row
     //@}
     
     //@{ \name Dimension sizes
-    int width()  const { return m_sizeX; }
-    int height() const { return m_sizeY; }
+    int width()  const { return m_sizeX; }      ///< size of first dimension
+    int height() const { return m_sizeY; }      ///< size of second dimension
     
-    int size()  const { return m_sizeX*m_sizeY; }
-    int sizeX() const { return m_sizeX; }
-    int sizeY() const { return m_sizeY; }
+    int size()  const { return m_sizeX*m_sizeY; }///< total number of elements
+    int sizeX() const { return m_sizeX; }       ///< size of first dimension
+    int sizeY() const { return m_sizeY; }       ///< size of first dimension
     //@}
 
     void resize(int sizeX, int sizeY);
@@ -46,9 +46,9 @@ public:
     void operator=(const T&);
 
 protected:
-    std::vector<T> m_data;
-    int m_sizeX;
-    int m_sizeY;
+    std::vector<T> m_data;          ///< the data
+    int m_sizeX;                    ///< size of first dimension
+    int m_sizeY;                    ///< size of second dimension
 };
 
 

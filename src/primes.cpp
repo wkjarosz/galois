@@ -1,5 +1,5 @@
 /**
-    \file primes.h
+    \file primes.cpp
     \author Wojciech Jarosz
     \copyright Copyright (c) 2019, Wojciech Jarosz
     
