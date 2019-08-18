@@ -12,7 +12,7 @@
 namespace Galois
 {
 
-//! Defines a Galois Field element and corresponding arithmetic operations.
+/// Defines a Galois Field element and corresponding arithmetic operations.
 class Element
 {
 public:
@@ -38,7 +38,7 @@ public:
         // empty
     }
 
-    //! Assigns/copies the value of another Element to this Element
+    /// Assigns/copies the value of another Element to this Element
     Element& operator=(const Element& rhs)
     {
         m_gf = rhs.m_gf;
@@ -46,7 +46,7 @@ public:
         return *this;
     }
 
-    //! Assigns a value to this Element
+    /// Assigns a value to this Element
     Element& operator=(int value)
     {
         if (!isValid(value))
@@ -58,17 +58,17 @@ public:
     //-----------------------------------------------------------------------
     ///@{ \name Access and manipulation.
     //-----------------------------------------------------------------------
-    //! Returns the pointer to the Galois Field this element is associated with.
+    /// Returns the pointer to the Galois Field this element is associated with.
     const Field* field() const { return m_gf; }
-    //! Returns true if the value is zero
+    /// Returns true if the value is zero
     bool isZero() const { return m_value == 0; }
-    //! The stored value
+    /// The stored value
     int value() const { return m_value; }
-    //! Set the stored value
+    /// Set the stored value
     void setValue(int value) { m_value = value; }
-    //! Check whether the value is between 0 and the GF's size q
+    /// Check whether the value is between 0 and the GF's size q
     bool isValid() const { return isValid(m_value); }
-    //! Ensure that the value is valid by modding with the GF's size q
+    /// Ensure that the value is valid by modding with the GF's size q
     void makeValid() { m_value = m_value % m_gf->q; }
     ///@}
 
@@ -91,7 +91,7 @@ public:
     //-----------------------------------------------------------------------
     ///@{ \name Addition
     //-----------------------------------------------------------------------
-    //! Adds two GFelements
+    /// Adds two GFelements
     Element operator+(const Element& rhs) const
     {
 #ifdef GF_SIZE_DEBUG
@@ -104,7 +104,7 @@ public:
         return Element(m_gf, m_gf->plus(m_value, rhs.m_value));
 #endif
     }
-    //! Addition-assignment operator.
+    /// Addition-assignment operator.
     const Element& operator+=(const Element& rhs)
     {
 #ifdef GF_SIZE_DEBUG
@@ -118,11 +118,11 @@ public:
 #endif
         return *this;
     }
-    //! Add a scalar to a Element
+    /// Add a scalar to a Element
     Element operator+(int rhs) const { return (*this) + Element(m_gf, rhs); }
-    //! Addition-assignment operator with a scalar.
+    /// Addition-assignment operator with a scalar.
     const Element& operator+=(int rhs) { return (*this) += Element(m_gf, rhs); }
-    //! Prefix increment operator.
+    /// Prefix increment operator.
     Element& operator++()
     {
 #ifdef GF_RANGE_DEBUG
@@ -132,24 +132,24 @@ public:
 #endif
         return *this;
     }
-    //! Postfix increment operator.
+    /// Postfix increment operator.
     Element operator++(int)
     {
         Element tmp = *this;
         ++*this;
         return tmp;
     }
-    //! Adds a Element to a scalar
+    /// Adds a Element to a scalar
     friend Element operator+(int lhs, const Element& rhs);
     ///@}
 
     //-----------------------------------------------------------------------
     ///@{ \name Subtraction
     //-----------------------------------------------------------------------
-    //! Returns the negated copy of this Element
+    /// Returns the negated copy of this Element
     Element operator-() const { return negative(); }
 
-    //! Subtracts two GFelements
+    /// Subtracts two GFelements
     Element operator-(const Element& rhs) const
     {
 #ifdef GF_SIZE_DEBUG
@@ -162,7 +162,7 @@ public:
         return Element(m_gf, m_gf->plus(m_value, m_gf->neg[rhs.m_value]));
 #endif
     }
-    //! Subtraction-assignment operator.
+    /// Subtraction-assignment operator.
     const Element& operator-=(const Element& rhs)
     {
 #ifdef GF_SIZE_DEBUG
@@ -176,11 +176,11 @@ public:
 #endif
         return *this;
     }
-    //! Subtract a scalar from a Element
+    /// Subtract a scalar from a Element
     Element operator-(int rhs) const { return (*this) - Element(m_gf, rhs); }
-    //! Substraction-assignment operator with a scalar.
+    /// Substraction-assignment operator with a scalar.
     const Element& operator-=(int rhs) { return (*this) -= Element(m_gf, rhs); }
-    //! Prefix decrement operator.
+    /// Prefix decrement operator.
     Element& operator--()
     {
 #ifdef GF_RANGE_DEBUG
@@ -190,21 +190,21 @@ public:
 #endif
         return *this;
     }
-    //! Postfix decrement operator.
+    /// Postfix decrement operator.
     Element operator--(int)
     {
         Element tmp = *this;
         --*this;
         return tmp;
     }
-    //! Subtracts a Element from a scalar
+    /// Subtracts a Element from a scalar
     friend Element operator-(int lhs, const Element& rhs);
     ///@}
 
     //-----------------------------------------------------------------------
     ///@{ \name Multiplication
     //-----------------------------------------------------------------------
-    //! Multiplies two GFelements
+    /// Multiplies two GFelements
     Element operator*(const Element& rhs) const
     {
 #ifdef GF_SIZE_DEBUG
@@ -217,7 +217,7 @@ public:
         return Element(m_gf, m_gf->times(m_value, rhs.m_value));
 #endif
     }
-    //! Multiplication-assignment operator.
+    /// Multiplication-assignment operator.
     const Element& operator*=(const Element& rhs)
     {
 #ifdef GF_SIZE_DEBUG
@@ -231,18 +231,18 @@ public:
 #endif
         return *this;
     }
-    //! Right-multiplies a Element by a scalar
+    /// Right-multiplies a Element by a scalar
     Element operator*(int rhs) const { return (*this) * Element(m_gf, rhs); }
-    //! Multiplication-assignment operator with a scalar.
+    /// Multiplication-assignment operator with a scalar.
     const Element& operator*=(int rhs) { return (*this) *= Element(m_gf, rhs); }
-    //! Left-multiplies a Element by a scalar
+    /// Left-multiplies a Element by a scalar
     friend Element operator*(int lhs, const Element& rhs);
     ///@}
 
     //-----------------------------------------------------------------------
     ///@{ \name Division
     //-----------------------------------------------------------------------
-    //! Divides two GFelements
+    /// Divides two GFelements
     Element operator/(const Element& rhs) const
     {
 #ifdef GF_SIZE_DEBUG
@@ -258,7 +258,7 @@ public:
         return Element(m_gf, m_gf->times(m_value, m_gf->inv[rhs.m_value]));
 #endif
     }
-    //! Division-assignment operator
+    /// Division-assignment operator
     const Element& operator/=(const Element& rhs)
     {
 #ifdef GF_SIZE_DEBUG
@@ -274,11 +274,11 @@ public:
 #endif
         return *this;
     }
-    //! Divides a Element by a scalar
+    /// Divides a Element by a scalar
     Element operator/(int rhs) const { return (*this) / Element(m_gf, rhs); }
-    //! Division-assignment operator with a scalar
+    /// Division-assignment operator with a scalar
     const Element& operator/=(int rhs) { return (*this) /= Element(m_gf, rhs); }
-    //! Left-divides a Element by a scalar
+    /// Left-divides a Element by a scalar
     friend Element operator/(int lhs, const Element& rhs);
     ///@}
 
@@ -286,7 +286,7 @@ public:
     //-----------------------------------------------------------------------
     ///@{ \name Modulo
     //-----------------------------------------------------------------------
-    //! Mods two GFelements
+    /// Mods two GFelements
     Element operator%(const Element& rhs) const
     {
 #ifdef GF_SIZE_DEBUG
@@ -297,7 +297,7 @@ public:
             throw std::domain_error("cannot modulo by zero");
         return Element(m_gf, m_value % rhs.m_value);
     }
-    //! Mod-assignment operator
+    /// Mod-assignment operator
     const Element& operator%=(const Element& rhs)
     {
 #ifdef GF_SIZE_DEBUG
@@ -309,16 +309,16 @@ public:
         m_value %= rhs.m_value;
         return *this;
     }
-    //! Mod an Element by a scalar
+    /// Mod an Element by a scalar
     Element operator%(int rhs) const { return (*this) % Element(m_gf, rhs); }
-    //! Mod-assignment operator with a scalar
+    /// Mod-assignment operator with a scalar
     const Element& operator%=(int rhs) { return (*this) %= Element(m_gf, rhs); }
-    //! Left-mods a Element by a scalar
+    /// Left-mods a Element by a scalar
     friend Element operator%(int lhs, const Element& rhs);
     ///@}
 
 
-    //! Returns the element y in the Galois Field such that y*y = x.
+    /// Returns the element y in the Galois Field such that y*y = x.
     Element sqrt() const
     {
 #ifdef GF_RANGE_DEBUG
@@ -328,7 +328,7 @@ public:
 #endif
     }
 
-    //! Returns the multiplicative inverse of a Element.
+    /// Returns the multiplicative inverse of a Element.
     Element negative() const
     {
 #ifdef GF_RANGE_DEBUG
@@ -337,7 +337,7 @@ public:
         return Element(m_gf, m_gf->neg[m_value]);
 #endif
     }
-    //! Returns the multiplicative inverse of a Element.
+    /// Returns the multiplicative inverse of a Element.
     Element inverse() const
     {
 #ifdef GF_RANGE_DEBUG
@@ -347,7 +347,7 @@ public:
 #endif
     }
 
-    //! Outputs a Element to the standard output
+    /// Outputs a Element to the standard output
     friend std::ostream& operator<<(std::ostream& output, const Element& rhs);
 
 private:
@@ -356,8 +356,8 @@ private:
         return value >= 0 && m_gf && value < m_gf->q;
     }
 
-    const Field* m_gf; //!< Associated Galois Field
-    int m_value;       //!< Stored value
+    const Field* m_gf; ///< Associated Galois Field
+    int m_value;       ///< Stored value
 };
 
 inline bool operator==(const Element& lhs, const Element& rhs)

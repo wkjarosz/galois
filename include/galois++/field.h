@@ -73,15 +73,15 @@ public:
     */
     friend std::ostream& operator<<(std::ostream& output, const Field& gf);
 
-    int n;                 //!< Vector Length
-    int p;                 //!< modulus
-    int q;                 //!< q = p^n
-    std::vector<int> inv;  //!< multiplicative inverses
-    std::vector<int> neg;  //!< negatives
-    std::vector<int> root; //!< square roots
-    Array2d<int> plus;     //!< sum field
-    Array2d<int> times;    //!< product field
-    Array2d<int> poly;     //!< polynomial field
+    int n;                 ///< Vector Length
+    int p;                 ///< modulus
+    int q;                 ///< q = p^n
+    std::vector<int> inv;  ///< multiplicative inverses
+    std::vector<int> neg;  ///< negatives
+    std::vector<int> root; ///< square roots
+    Array2d<int> plus;     ///< sum field
+    Array2d<int> times;    ///< product field
+    Array2d<int> poly;     ///< polynomial field
 };
 
 } // namespace Galois

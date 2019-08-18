@@ -7,18 +7,16 @@
 
 #include <vector>
 
-//! Generic, resizable, 2D array class.
+/// Generic, resizable, 2D array class.
 template <typename T>
 class Array2d
 {
 public:
-    ///@{ \name Constructors and destructors
     Array2d();                     ///< empty array, 0 by 0 elements
     Array2d(int sizeX, int sizeY); ///< sizeX by sizeY elements
     Array2d(const Array2d &);
     Array2d & operator=(const Array2d &);
     ~Array2d();
-    ///@}
 
     ///@{ \name Element access
     T &         at(int x, int y);               ///< bounds-checked 2d access
@@ -36,19 +34,19 @@ public:
     int width()  const { return m_sizeX; }      ///< size of first dimension
     int height() const { return m_sizeY; }      ///< size of second dimension
     
-    int size()  const { return m_sizeX*m_sizeY; }///< total number of elements
+    int size()  const { return m_sizeX*m_sizeY;}///< total number of elements
     int sizeX() const { return m_sizeX; }       ///< size of first dimension
     int sizeY() const { return m_sizeY; }       ///< size of first dimension
     ///@}
 
-    void resize(int sizeX, int sizeY);
-    void reset(const T& value = T(0));
-    void operator=(const T&);
+    void resize(int sizeX, int sizeY);          ///< Resize to `sizeX` x `sizeY`
+    void reset(const T& value = T(0));          ///< Set all elements to `value`
+    void operator=(const T&);                   ///< Set all elements to `value`
 
 protected:
-    std::vector<T> m_data;          ///< the data
-    int m_sizeX;                    ///< size of first dimension
-    int m_sizeY;                    ///< size of second dimension
+    std::vector<T> m_data;                      ///< the data
+    int m_sizeX;                                ///< size of first dimension
+    int m_sizeY;                                ///< size of second dimension
 };
 
 
