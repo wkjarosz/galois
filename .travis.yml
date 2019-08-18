@@ -52,4 +52,5 @@ matrix:
         - cmake --version
         - cmake .. 
         - cmake --build . 
-        - cd tests && galoistest.exe
+        - cd tests
+        - galoistest.exe
