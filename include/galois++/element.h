@@ -8,6 +8,7 @@
 #include <galois++/field.h>
 #include <assert.h>
 #include <iostream>
+#include <stdexcept>
 
 namespace Galois
 {
