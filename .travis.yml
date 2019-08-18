@@ -22,6 +22,7 @@ matrix:
         - cmake --version
         - cmake -DCMAKE_CXX_COMPILER=g++-4.8 -DCMAKE_C_COMPILER=gcc-4.8 .
         - make -j 2
+        - tests/galoistest
     - os: linux
       compiler: clang
       addons:
@@ -34,12 +35,14 @@ matrix:
         - cmake --version
         - cmake .
         - make -j 2
+        - tests/galoistest
     - os: osx
       compiler: clang
       script:
         - cmake --version
         - cmake .
         - make -j 2
+        - tests/galoistest
     - os: windows
       env:
         - CMAKE_PATH="/c/Program Files/CMake/bin"
@@ -49,3 +52,4 @@ matrix:
         - cmake --version
         - cmake .. 
         - cmake --build . 
+        - tests/galoistest
