@@ -56,7 +56,7 @@ public:
     }
 
     //-----------------------------------------------------------------------
-    //@{ \name Access and manipulation.
+    ///@{ \name Access and manipulation.
     //-----------------------------------------------------------------------
     //! Returns the pointer to the Galois Field this element is associated with.
     const Field* field() const { return m_gf; }
@@ -70,7 +70,7 @@ public:
     bool isValid() const { return isValid(m_value); }
     //! Ensure that the value is valid by modding with the GF's size q
     void makeValid() { m_value = m_value % m_gf->q; }
-    //@}
+    ///@}
 
     /**
         \brief Compares two GFelements, checks for equality
@@ -89,7 +89,7 @@ public:
     friend bool operator!=(const Element& lhs, const Element& rhs);
 
     //-----------------------------------------------------------------------
-    //@{ \name Addition
+    ///@{ \name Addition
     //-----------------------------------------------------------------------
     //! Adds two GFelements
     Element operator+(const Element& rhs) const
@@ -141,10 +141,10 @@ public:
     }
     //! Adds a Element to a scalar
     friend Element operator+(int lhs, const Element& rhs);
-    //@}
+    ///@}
 
     //-----------------------------------------------------------------------
-    //@{ \name Subtraction
+    ///@{ \name Subtraction
     //-----------------------------------------------------------------------
     //! Returns the negated copy of this Element
     Element operator-() const { return negative(); }
@@ -199,10 +199,10 @@ public:
     }
     //! Subtracts a Element from a scalar
     friend Element operator-(int lhs, const Element& rhs);
-    //@}
+    ///@}
 
     //-----------------------------------------------------------------------
-    //@{ \name Multiplication
+    ///@{ \name Multiplication
     //-----------------------------------------------------------------------
     //! Multiplies two GFelements
     Element operator*(const Element& rhs) const
@@ -237,10 +237,10 @@ public:
     const Element& operator*=(int rhs) { return (*this) *= Element(m_gf, rhs); }
     //! Left-multiplies a Element by a scalar
     friend Element operator*(int lhs, const Element& rhs);
-    //@}
+    ///@}
 
     //-----------------------------------------------------------------------
-    //@{ \name Division
+    ///@{ \name Division
     //-----------------------------------------------------------------------
     //! Divides two GFelements
     Element operator/(const Element& rhs) const
@@ -280,11 +280,11 @@ public:
     const Element& operator/=(int rhs) { return (*this) /= Element(m_gf, rhs); }
     //! Left-divides a Element by a scalar
     friend Element operator/(int lhs, const Element& rhs);
-    //@}
+    ///@}
 
 
     //-----------------------------------------------------------------------
-    //@{ \name Modulo
+    ///@{ \name Modulo
     //-----------------------------------------------------------------------
     //! Mods two GFelements
     Element operator%(const Element& rhs) const
@@ -315,7 +315,7 @@ public:
     const Element& operator%=(int rhs) { return (*this) %= Element(m_gf, rhs); }
     //! Left-mods a Element by a scalar
     friend Element operator%(int lhs, const Element& rhs);
-    //@}
+    ///@}
 
 
     //! Returns the element y in the Galois Field such that y*y = x.
@@ -346,7 +346,6 @@ public:
         return Element(m_gf, m_gf->inv[m_value]);
 #endif
     }
-    //@}
 
     //! Outputs a Element to the standard output
     friend std::ostream& operator<<(std::ostream& output, const Element& rhs);
