@@ -51,11 +51,11 @@ jobs:
 
       - name: Running tests
         run: |
-          ${{github.workspace}}/build/${{ matrix.buildtype }}/tests/galoistest
+          ${{github.workspace}}/build/tests/galoistest
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: build-artifacts-${{ matrix.config.os }}-${{ matrix.buildtype }}
           path: |
-            ${{github.workspace}}/build/${{ matrix.buildtype }}
+            ${{github.workspace}}/build
