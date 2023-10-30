@@ -51,7 +51,7 @@ jobs:
 
       - name: Running tests
         run: |
-          ${{github.workspace}}/build/test/${{ matrix.buildtype }}/galoistest.exe
+          ${{github.workspace}}/build/tests/${{ matrix.buildtype }}/galoistest.exe
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
