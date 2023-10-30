@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(GaloisPlusPlus)
 
 option(BUILD_SHARED_LIBS "Build shared instead of static library" OFF)
@@ -54,13 +54,6 @@ if (MSVC)
   endforeach()
 endif()
 
-# Enable C++11 mode on GCC / Clang
-if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
-elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-endif()
-
 # Compile remainder of the codebase with compiler warnings turned on
 if(MSVC)
   if(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
@@ -87,6 +80,8 @@ else()
     src/field.cpp
     src/primes.cpp)
 endif()
+
+set_target_properties(galois++ PROPERTIES CXX_STANDARD 11)
 
 ENABLE_TESTING()
 add_subdirectory(tests)

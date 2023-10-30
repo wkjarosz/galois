@@ -1,6 +1,9 @@
 # galois++
 
-Status: [![Build Status](https://travis-ci.org/wkjarosz/galois.svg?branch=master)](https://travis-ci.org/wkjarosz/galois)
+Status:
+[![macOS build](https://github.com/wkjarosz/galois/actions/workflows/ci-mac.yml/badge.svg?branch=master)](https://github.com/wkjarosz/galois/actions/workflows/ci-mac.yml)
+[![Linux build](https://github.com/wkjarosz/galois/actions/workflows/ci-linux.yml/badge.svg?branch=master)](https://github.com/wkjarosz/galois/actions/workflows/ci-linux.yml)
+[![Windows build](https://github.com/wkjarosz/galois/actions/workflows/ci-windows.yml/badge.svg?branch=master)](https://github.com/wkjarosz/galois/actions/workflows/ci-windows.yml)
 
 This is C++ library for general Galois fields based on [Art Owen's code in Statlib](http://ftp.uni-bayreuth.de/math/statlib/designs/). This library supports arithmetic over a finite field of any prime power, GF(p^n) where p is a prime and n >= 1, and it does so relatively efficiently by relying on addition and multiplication tables.
 

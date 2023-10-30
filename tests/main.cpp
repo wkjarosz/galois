@@ -39,18 +39,18 @@ inline void Assert(bool test)
  * Assert that the expression throws an error.  It is caught if is derived from
  * runtime_error or from logic_error
  */
-#define ASSERT_THROW(exp)                                                      \
-    try                                                                        \
-    {                                                                          \
-        exp;                                                                   \
-        throw string(                                                          \
-            "Failed: test that should throw an exception did not.\n");         \
-    }                                                                          \
-    catch (runtime_error re)                                                   \
-    {                                                                          \
-    }                                                                          \
-    catch (logic_error le)                                                     \
-    {                                                                          \
+#define ASSERT_THROW(exp)                                              \
+    try                                                                \
+    {                                                                  \
+        exp;                                                           \
+        throw string(                                                  \
+            "Failed: test that should throw an exception did not.\n"); \
+    }                                                                  \
+    catch (runtime_error re)                                           \
+    {                                                                  \
+    }                                                                  \
+    catch (logic_error le)                                             \
+    {                                                                  \
     }
 
 void testIsPrime()
@@ -164,7 +164,7 @@ void testGFMath()
             E = A + B;
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -196,7 +196,7 @@ void testGFMath()
             F = C - D;
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -207,7 +207,7 @@ void testGFMath()
             E = D + F;
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -222,7 +222,7 @@ void testGFMath()
             F = A * B;
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -233,7 +233,7 @@ void testGFMath()
             E = F / A;
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -248,7 +248,7 @@ void testGFMath()
             F = A / B;
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -259,7 +259,7 @@ void testGFMath()
             E = F * B;
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -274,7 +274,7 @@ void testGFMath()
             E = a * B;
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -285,7 +285,7 @@ void testGFMath()
             F = A * b;
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -296,7 +296,7 @@ void testGFMath()
             G = E + F;
             cout << "RESULT: G = " << G;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -307,7 +307,7 @@ void testGFMath()
             E = B * a;
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -318,7 +318,7 @@ void testGFMath()
             F = b * A;
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -329,7 +329,7 @@ void testGFMath()
             H = F + E;
             cout << "RESULT: G = " << G;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -344,7 +344,7 @@ void testGFMath()
             G = A * B + C * D;
             cout << "RESULT: G = " << G;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -355,7 +355,7 @@ void testGFMath()
             H = D * C + B * A;
             cout << "RESULT: H = " << H;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -370,7 +370,7 @@ void testGFMath()
             G = A * B * C * D;
             cout << "RESULT: G = " << G;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -381,7 +381,7 @@ void testGFMath()
             H = (((G / A) / D) / C);
             cout << "RESULT: G = " << H;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -396,7 +396,7 @@ void testGFMath()
             G = A * B * C * D * A * B * D * C;
             cout << "RESULT: G = " << G;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -407,7 +407,7 @@ void testGFMath()
             H = A * A * C * C * B * B * D * D;
             cout << "RESULT: H = " << H;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -422,7 +422,7 @@ void testGFMath()
             E = (A + B) * C;
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -433,7 +433,7 @@ void testGFMath()
             F = A * C + B * C;
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -448,7 +448,7 @@ void testGFMath()
             E = (A + C) * (B + D);
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -459,7 +459,7 @@ void testGFMath()
             F = B * A + D * A + C * B + D * C;
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -476,7 +476,7 @@ void testGFMath()
             E = (A + C) / (B + D);
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -487,7 +487,7 @@ void testGFMath()
             F = (D + B) / (C + A);
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -498,7 +498,7 @@ void testGFMath()
             G = E * F;
             cout << "RESULT: G = " << G;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -516,7 +516,7 @@ void testGFMath()
             G = E / F;
             cout << "RESULT: G = " << G;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -527,7 +527,7 @@ void testGFMath()
             F = ((-D) * 5 + B * B) / (D * C + A * 2);
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -538,7 +538,7 @@ void testGFMath()
             G = E * F;
             cout << "RESULT: G = " << G;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -550,7 +550,7 @@ void testGFMath()
             E = A / A;
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -562,7 +562,7 @@ void testGFMath()
             E = A.sqrt();
             cout << "RESULT: E = " << E;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -575,7 +575,7 @@ void testGFMath()
             F = E * E;
             cout << "RESULT: F = " << F;
         }
-        catch (const exception& e)
+        catch (const exception &e)
         {
             cout << e.what() << endl;
         }
@@ -588,7 +588,7 @@ void testGFMath()
     printf("passed\n");
 }
 
-int main(int argc, const char* argv[])
+int main(int argc, const char *argv[])
 {
     try
     {
@@ -596,11 +596,12 @@ int main(int argc, const char* argv[])
         testGFConstruct();
         testGFMath();
     }
-    catch (const exception& e)
+    catch (const exception &e)
     {
-        cout << endl << e.what();
-        return 1;
+        cout << endl
+             << e.what();
+        return EXIT_FAILURE;
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
